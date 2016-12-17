@@ -1,6 +1,5 @@
 import numpy as np
 from scipy.stats import norm
-from mpl_toolkits.axes_grid.axislines import SubplotZero
 import matplotlib.pyplot as plt
 
 
@@ -68,23 +67,25 @@ for i in range(M):
     gmean = pow(spath[i].prod(), 1/N)
     A[i] = CallPayoff(amean, K)
     G[i] = CallPayoff(gmean, K)
-    
 
 callPrice = disc * A.mean() + b * (Gstar - G.mean())
 fmt = "The Fixed Strike Arithmetic Asian Call Price is: {0:0.3f}"
 print(fmt.format(callPrice))
+
+def graph(CallPayoff, S):
+    S = []
     
-def graphs(A, S):
-    S = [] 
-    
-    while True:
-        S = S.append[0:125]
-        fig = plt.figure()
-        axes = fig.add_axes([0.1, 0.1, 0.8, 0.8]) 
-        axes.set_xlabel('Payoff')
-        axes.set_ylabel('Spot Price')
-        x = CallPayoff
-        y = S.int([])
-        axes.plot(x, y)
-        plt.grid(True)
-        plt.show()
+    while S <= K:
+        CallPayoff = 0
+    else:
+        CallPayoff = CallPayoff
+        while True:
+            fig = plt.figure()
+            axes = fig.add_axes([0.1, 0.1, 0.8, 0.8]) 
+            axes.set_xlabel('Payoff')
+            axes.set_ylabel('Spot Price')
+            x = CallPayoff
+            y = S.int([0,125])
+            axes.plot(x, y)
+            plt.grid(True)
+            plt.show()
